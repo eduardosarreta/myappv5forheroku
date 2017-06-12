@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @senator.errors.any? %>
+  <% @senator.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Senator</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_senator" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @senator.name %>">
+      </div>
+
+      <!-- Label and input for party -->
+      <div class="form-group">
+        <label for="party" class="control-label">
+          Party
+        </label>
+
+        <input type="text" id="party" name="party" placeholder="Party" class="form-control" value="<%= @senator.party %>">
+      </div>
+
+      <!-- Label and input for sex -->
+      <div class="form-group">
+        <label for="sex" class="control-label">
+          Sex
+        </label>
+
+        <input type="text" id="sex" name="sex" placeholder="Sex" class="form-control" value="<%= @senator.sex %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @senator.state %>">
+      </div>
+
+      <!-- Label and input for telephone -->
+      <div class="form-group">
+        <label for="telephone" class="control-label">
+          Telephone
+        </label>
+
+        <input type="text" id="telephone" name="telephone" placeholder="Telephone" class="form-control" value="<%= @senator.telephone %>">
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @senator.email %>">
+      </div>
+
+      <!-- Label and input for picture -->
+      <div class="form-group">
+        <label for="picture" class="control-label">
+          Picture
+        </label>
+
+        <input type="text" id="picture" name="picture" placeholder="Picture" class="form-control" value="<%= @senator.picture %>">
+      </div>
+
+      <!-- Label and input for expenses -->
+      <div class="form-group">
+        <label for="expenses" class="control-label">
+          Expenses
+        </label>
+
+        <input type="text" id="expenses" name="expenses" placeholder="Expenses" class="form-control" value="<%= @senator.expenses %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Senator
+      </button>
+      or
+      <a href="/senators">Cancel</a>
+    </form>
+  </div>
+</div>

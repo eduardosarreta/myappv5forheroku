@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @red_flag_expense_senator.errors.any? %>
+  <% @red_flag_expense_senator.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Red Flag Expense Senator</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_red_flag_expense_senator" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @red_flag_expense_senator.user_id %>">
+      </div>
+
+      <!-- Label and input for senator_id -->
+      <div class="form-group">
+        <label for="senator_id" class="control-label">
+          Senator
+        </label>
+
+        <input type="text" id="senator_id" name="senator_id" placeholder="Senator" class="form-control" value="<%= @red_flag_expense_senator.senator_id %>">
+      </div>
+
+      <!-- Label and input for expense_description -->
+      <div class="form-group">
+        <label for="expense_description" class="control-label">
+          Expense description
+        </label>
+
+        <input type="text" id="expense_description" name="expense_description" placeholder="Expense description" class="form-control" value="<%= @red_flag_expense_senator.expense_description %>">
+      </div>
+
+      <!-- Label and input for expense_detail -->
+      <div class="form-group">
+        <label for="expense_detail" class="control-label">
+          Expense detail
+        </label>
+
+        <input type="text" id="expense_detail" name="expense_detail" placeholder="Expense detail" class="form-control" value="<%= @red_flag_expense_senator.expense_detail %>">
+      </div>
+
+      <!-- Label and input for expense_amount -->
+      <div class="form-group">
+        <label for="expense_amount" class="control-label">
+          Expense amount
+        </label>
+
+        <input type="text" id="expense_amount" name="expense_amount" placeholder="Expense amount" class="form-control" value="<%= @red_flag_expense_senator.expense_amount %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Red Flag Expense Senator
+      </button>
+      or
+      <a href="/red_flag_expense_senators">Cancel</a>
+    </form>
+  </div>
+</div>

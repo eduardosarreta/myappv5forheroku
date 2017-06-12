@@ -1,0 +1,71 @@
+<div class="page-header">
+  <h1>
+    Red flags and comments for senator <%= @senators.find(@senator_id).name %>
+  </h1>
+</div>
+
+<% @red_flags_senators.each do |x| %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table table-striped table-hover">
+          <tr>
+            <th>Expense Description</th>
+            <th>Expense Detail</th>
+            <th>Expense Amount</th>
+          </tr>
+          <tr>
+            <td><%= x.expense_description %></td>
+            <td><%= x.expense_detail %></td>
+            <td><%= number_to_currency(x.expense_amount, unit: "R$", precision: 0) %></td>
+          </tr>
+        </table>
+        <ul class="media-list">
+          <% x.comments_expense_senators.each do |y|  %>
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a><%= y.user.email %></a>
+                <small>
+                  <%= time_ago_in_words(y.created_at) %> ago
+                </small>
+              </h6>
+              <%= y.body %>
+            </div>
+          </li>
+          <% end  %>
+          <li class="media">
+            <div class="media-body">
+              <form action="/create_comments_expense_senator_in_existing_red_flag" method="post">
+                <!-- Hidden input for authenticity token to protect from forgery -->
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="red_flag_expense_senator_id" value="<%=x.id %>">
+                <input type="hidden" name="senator_id" value="<%=x.senator_id%>">
+                <input type="hidden" name="user_id" value="<%=current_user.id%>">
+
+                <!-- Label and input for body -->
+                <div class="form-group">
+                  <label for="body" class="sr-only">
+                    Body
+                  </label>
+                  <div class="input-group">
+                    <input type="text" id="body" name="body" class="form-control" placeholder="Add a comment..." required>
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit">
+                        <i class="fa fa-commenting-o"></i>
+                      </button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div>
+              </form>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<% end  %>

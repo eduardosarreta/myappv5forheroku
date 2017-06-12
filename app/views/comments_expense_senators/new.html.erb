@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @comments_expense_senator.errors.any? %>
+  <% @comments_expense_senator.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Comments Expense Senator</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_comments_expense_senator" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @comments_expense_senator.user_id %>">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="<%= @comments_expense_senator.body %>">
+      </div>
+
+      <!-- Label and input for red_flag_expense_senator_id -->
+      <div class="form-group">
+        <label for="red_flag_expense_senator_id" class="control-label">
+          Red flag expense senator
+        </label>
+
+        <input type="text" id="red_flag_expense_senator_id" name="red_flag_expense_senator_id" placeholder="Red flag expense senator" class="form-control" value="<%= @comments_expense_senator.red_flag_expense_senator_id %>">
+      </div>
+
+      <!-- Label and input for senator_id -->
+      <div class="form-group">
+        <label for="senator_id" class="control-label">
+          Senator
+        </label>
+
+        <input type="text" id="senator_id" name="senator_id" placeholder="Senator" class="form-control" value="<%= @comments_expense_senator.senator_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Comments Expense Senator
+      </button>
+      or
+      <a href="/comments_expense_senators">Cancel</a>
+    </form>
+  </div>
+</div>

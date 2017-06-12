@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @comments_expense_deputy.errors.any? %>
+  <% @comments_expense_deputy.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Comments Expense Deputy</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_comments_expense_deputy" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @comments_expense_deputy.user_id %>">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="<%= @comments_expense_deputy.body %>">
+      </div>
+
+      <!-- Label and input for red_flag_expense_deputy_id -->
+      <div class="form-group">
+        <label for="red_flag_expense_deputy_id" class="control-label">
+          Red flag expense deputy
+        </label>
+
+        <input type="text" id="red_flag_expense_deputy_id" name="red_flag_expense_deputy_id" placeholder="Red flag expense deputy" class="form-control" value="<%= @comments_expense_deputy.red_flag_expense_deputy_id %>">
+      </div>
+
+      <!-- Label and input for deputy_id -->
+      <div class="form-group">
+        <label for="deputy_id" class="control-label">
+          Deputy
+        </label>
+
+        <input type="text" id="deputy_id" name="deputy_id" placeholder="Deputy" class="form-control" value="<%= @comments_expense_deputy.deputy_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Comments Expense Deputy
+      </button>
+      or
+      <a href="/comments_expense_deputies">Cancel</a>
+    </form>
+  </div>
+</div>

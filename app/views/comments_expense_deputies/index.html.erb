@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Comments expense deputies
+    <a href="/comments_expense_deputies/new" class="btn btn-lg btn-success">New Comments expense deputy</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Body</th>
+        <th>Red flag expense deputy</th>
+        <th>Deputy</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @comments_expense_deputies.each do |comments_expense_deputy| %>
+      <tr>
+        <td><%= comments_expense_deputy.user_id %></td>
+        <td><%= comments_expense_deputy.body %></td>
+        <td><%= comments_expense_deputy.red_flag_expense_deputy_id %></td>
+        <td><%= comments_expense_deputy.deputy_id %></td>
+        <td>
+          <a href="/comments_expense_deputies/<%= comments_expense_deputy.id %>" class="btn btn-primary">Show</a>
+          <a href="/comments_expense_deputies/<%= comments_expense_deputy.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_comments_expense_deputy/<%= comments_expense_deputy.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

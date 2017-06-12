@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Deputies Bookmarked
+
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Party</th>
+        <th>State</th>
+        <th>Expenses ('11-'14)</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @bookmarked_deputies.each do |bookmarked_deputy| %>
+      <tr>
+        <td><img src="<%=@deputies.find(bookmarked_deputy.deputy_id).picture %>" width="70"></td>
+        <td><%= @deputies.find(bookmarked_deputy.deputy_id).name %></td>
+        <td><%= @deputies.find(bookmarked_deputy.deputy_id).party %></td>
+        <td><%= @deputies.find(bookmarked_deputy.deputy_id).state %></td>
+        <td><%= number_to_currency(@deputies.find(bookmarked_deputy.deputy_id).expenses, unit: "R$", precision: 0) %></td>
+        <td>
+          <a href="/deputies/<%= bookmarked_deputy.deputy_id %>/expenses" class="btn btn-info">View expense detail</a>
+
+          <a href="/delete_bookmarked_deputy/<%= bookmarked_deputy.id %>" class="btn btn-danger" rel="nofollow">Remove from Watchlist</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

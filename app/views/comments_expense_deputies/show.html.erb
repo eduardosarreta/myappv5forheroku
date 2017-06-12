@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Comments Expense Deputy #<%= @comments_expense_deputy.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @comments_expense_deputy.user_id %></dd>
+
+      <dt>Body</dt>
+      <dd><%= @comments_expense_deputy.body %></dd>
+
+      <dt>Red flag expense deputy</dt>
+      <dd><%= @comments_expense_deputy.red_flag_expense_deputy_id %></dd>
+
+      <dt>Deputy</dt>
+      <dd><%= @comments_expense_deputy.deputy_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/comments_expense_deputies" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/comments_expense_deputies/<%= @comments_expense_deputy.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_comments_expense_deputy/<%= @comments_expense_deputy.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

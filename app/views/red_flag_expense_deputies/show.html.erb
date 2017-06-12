@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Red Flag Expense Deputy #<%= @red_flag_expense_deputy.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @red_flag_expense_deputy.user_id %></dd>
+
+      <dt>Deputy</dt>
+      <dd><%= @red_flag_expense_deputy.deputy_id %></dd>
+
+      <dt>Expense description</dt>
+      <dd><%= @red_flag_expense_deputy.expense_description %></dd>
+
+      <dt>Expense detail</dt>
+      <dd><%= @red_flag_expense_deputy.expense_detail %></dd>
+
+      <dt>Expense amount</dt>
+      <dd><%= @red_flag_expense_deputy.expense_amount %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/red_flag_expense_deputies" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/red_flag_expense_deputies/<%= @red_flag_expense_deputy.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_red_flag_expense_deputy/<%= @red_flag_expense_deputy.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

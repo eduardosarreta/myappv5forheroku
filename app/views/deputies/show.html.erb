@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3><%= @deputy.name %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt></dt>
+      <dd><img src="<%= @deputy.picture %>" width="70"></dd>
+
+
+
+      <dt>Party</dt>
+      <dd><%= @deputy.party %></dd>
+
+
+      <dt>State</dt>
+      <dd><%= @deputy.state %></dd>
+
+      <dt>Telephone</dt>
+      <dd><%= @deputy.telephone %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @deputy.email %></dd>
+
+
+
+      <dt>Expenses</dt>
+      <dd><%= number_to_currency(@deputy.expenses, unit: "R$", precision: 0) %></dd>
+
+      <dt>Expense Detail</dt>
+
+      <dd><a href="/deputies/<%= @deputy.id %>/expenses" class="btn btn-primary ">View expense detail</a></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/deputies" class="btn btn-primary">
+        Back
+      </a>      
+    </div>
+  </div>
+</div>
